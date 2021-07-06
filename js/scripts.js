@@ -35,20 +35,28 @@ function Place(location, landmark, time, name) {
     this.time = time;
     this.name = name;
 }
-let placeData = new PlacesBeen();
-let myPlace1 = new Place("Oregon", "Highway I-84 East", "Summer", "Multnomah Falls" )//see line 5 above this would have a id place0
-let myPlace2 = new Place("Idaho", "Highway I-84 East", "Fall", "Pocatello" )// this would have id place1
-placeData.addPlace(myPlace1);
-placeData.addPlace(myPlace2);
 
-// ideally user input above
+// let myPlace1 = new Place("Oregon", "Highway I-84 East", "Summer", "Multnomah Falls" )//see line 5 above this would have a id place0
+// let myPlace2 = new Place("Idaho", "Highway I-84 East", "Fall", "Pocatello" )// this would have id place1
+// let testPlace = new Place("testplace", "another", "oneMore", "lastOne")
+// placeData.addPlace(myPlace1);
+// placeData.addPlace(myPlace2);
+// placeData.addPlace(testPlace);
 
-console.log(myPlace1.location)
-console.log(myPlace1.name)
-console.log(myPlace2.location)
-console.log(myPlace2.name)
-console.log(placeData.placesList[1])
-console.log(placeData.placesList[2])
 
-// I need to know if this is actually making new id if i were to ad more and more places like place 0 place 1 ect
-// i know that I need to use a submit function
+
+
+
+$(document).ready(function () {
+    let placeData = new PlacesBeen();
+    $("form#userInput").submit(function(event){
+        const userLocation = $('input#locationInput').val();
+        const userLandmark = $('input#landmarkInput').val();
+        const userTime = $('input#timeInput').val();
+        const userName = $('input#nameInput').val();
+        let userPlace = new Place(userLocation, userLandmark, userTime, userName)
+        placeData.addPlace(userPlace);
+        console.log(placeData.placesList)
+    event.preventDefault();
+  });
+});
