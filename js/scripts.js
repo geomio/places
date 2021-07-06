@@ -20,6 +20,14 @@ PlacesBeen.prototype.FindPlace = function(id) {
     return false;
 }
 
+PlacesBeen.prototype.deletePlace = function(id) {
+    if (this.placesList[id] === undefined) {
+        return false;
+    }
+    delete this.placesList[id];
+    return true;
+}
+
 // Business Logic down here
 function Place(location, landmark, time, name) {
     this.location = location;
@@ -40,7 +48,7 @@ console.log(myPlace1.name)
 console.log(myPlace2.location)
 console.log(myPlace2.name)
 console.log(placeData.placesList[1])
-console.log(placeData.placesList[0])
+console.log(placeData.placesList[2])
 
 // I need to know if this is actually making new id if i were to ad more and more places like place 0 place 1 ect
 // i know that I need to use a submit function
