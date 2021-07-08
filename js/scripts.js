@@ -36,6 +36,10 @@ function Place(location, landmark, time, name) {
     this.name = name;
 }
 
+Place.prototype.fullPlace = function(){
+    return this.location + " " + this.name;
+}
+
 // let myPlace1 = new Place("Oregon", "Highway I-84 East", "Summer", "Multnomah Falls" )//see line 5 above this would have a id place0
 // let myPlace2 = new Place("Idaho", "Highway I-84 East", "Fall", "Pocatello" )// this would have id place1
 // let testPlace = new Place("testplace", "another", "oneMore", "lastOne")
@@ -50,6 +54,7 @@ function Place(location, landmark, time, name) {
 $(document).ready(function () {
     let placeData = new PlacesBeen();
     $("form#userInput").submit(function(event){
+        $("#hide").show();
         const userLocation = $('input#locationInput').val();
         const userLandmark = $('input#landmarkInput').val();
         const userTime = $('input#timeInput').val();
