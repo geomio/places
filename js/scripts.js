@@ -59,8 +59,13 @@ $(document).ready(function () {
         const userLandmark = $('input#landmarkInput').val();
         const userTime = $('input#timeInput').val();
         const userName = $('input#nameInput').val();
+        
         let userPlace = new Place(userLocation, userLandmark, userTime, userName)
         placeData.addPlace(userPlace);
+        $(".location-name").html(userLocation);
+        $(".landmark-name").html(userLandmark);
+        $(".time-of-year").html(userTime);
+        $(".place-name").html(userName);
         console.log(placeData.placesList)
     event.preventDefault();
   });
